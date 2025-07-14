@@ -4,12 +4,6 @@ import { phoneValidator } from '../shared/url.validator';
 import { NgIf } from '@angular/common';
 import { CustomFullNameComponent } from '../custom-full-name/custom-full-name.component';
 
-// Интерфейс формы 
-type RequiredFields = 'fullName' | 'phone' | 'email' | 'agreement';
-type OptionalFields = 'comment';
-export type FeedbackFormData = 
-  { [K in RequiredFields]: K extends 'agreement' ? boolean : string } & 
-  { [K in OptionalFields]?: string };
 
 @Component({
   selector: 'app-root',
@@ -22,11 +16,11 @@ export class AppComponent implements OnInit {
 
   feedbackForm!: FormGroup;
 
-  public showSuccessModal: boolean = false;
+  showSuccessModal: boolean = false;
 
   constructor () {}
 
-  public  ngOnInit(): void {
+   ngOnInit(): void {
     this.initForm();
   }
  
@@ -79,12 +73,14 @@ export class AppComponent implements OnInit {
       }
     };
 
- public onSubmit(): void {
+  protected onSubmit(): void {
   if (this.feedbackForm.valid && this.feedbackForm.value.agreement) {
     console.log('Форма отправлена', this.feedbackForm.value);
     this.showSuccessModal = true;
 
     this.feedbackForm.reset();
+
+    this.feedbackForm.clearValidators();
 
     this.feedbackForm.get('agreement')?.disable();
   } else {
@@ -98,7 +94,7 @@ export class AppComponent implements OnInit {
     });
  }
 
- public closeModal(): void {
+  closeModal(): void {
     this.showSuccessModal = false;
   }
 

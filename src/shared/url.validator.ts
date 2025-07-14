@@ -1,8 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-
-function isNumberOrString(value: any): value is number | string {
-  return typeof value === 'number' || typeof value === 'string';
-}
+import {isNumberOrString } from '../shared/guards';
 
 export function phoneValidator(control: AbstractControl): ValidationErrors | null {
   const value = control.value;

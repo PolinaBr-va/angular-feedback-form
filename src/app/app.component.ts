@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular
 import { phoneValidator } from '../shared/url.validator';
 import { NgIf } from '@angular/common';
 import { CustomFullNameComponent } from '../custom-full-name/custom-full-name.component';
+import { FeedbackForm } from '../shared/types';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { CustomFullNameComponent } from '../custom-full-name/custom-full-name.co
 export class AppComponent implements OnInit {
   title = 'Feedback form';
 
-  feedbackForm!: FormGroup;
+  feedbackForm!: FormGroup<FeedbackForm>;
 
   showSuccessModal: boolean = false;
 

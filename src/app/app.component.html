@@ -50,7 +50,7 @@
 
 <!-- Кнопка отправки -->
   <button 
-    type="submit" [disabled]="!feedbackForm.get('agreement')"> Отправить </button>
+    type="submit" [disabled]="!feedbackForm.get('agreement')?.value"> Отправить </button>
 
 <!-- Модальное окно -->
 <div *ngIf="showSuccessModal" class="modal">

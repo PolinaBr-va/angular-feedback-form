@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-
+import {isNumberOrString} from '../shared/guards'
 
 export function phoneValidator(control: AbstractControl): ValidationErrors | null {
   const value = control.value;
@@ -14,3 +14,5 @@ export function phoneValidator(control: AbstractControl): ValidationErrors | nul
     ? null 
     : { phoneInvalid: 'Только цифры разрешены' };
 }
+
+

@@ -1,0 +1,62 @@
+<form [formGroup]="feedbackForm"
+(ngSubmit)="onSubmit()">
+<!-- ФИО -->
+ <div class="form-group">
+    <label>ФИО </label>
+    <app-custom-full-name formControlName="fullName"></app-custom-full-name>
+    <div class="error" *ngIf="feedbackForm.get('fullName')?.invalid && feedbackForm.get('fullName')?.touched">
+      <div *ngIf="feedbackForm.get('fullName')?.errors?.['required']">Обязательное поле</div>
+      <div *ngIf="feedbackForm.get('fullName')?.errors?.['minlength']">Минимум 6 символов</div>
+    </div>
+ </div>
+
+ <!-- Телефон -->
+ <div class="form-group">
+    <label for="phone">Телефон </label>
+    <input type="tel" id="phone"
+    formControlName="phone">
+     <div class="error" *ngIf="feedbackForm.get('phone')?.invalid && feedbackForm.get('phone')?.touched">
+      <div *ngIf="feedbackForm.get('phone')?.errors?.['required']">Обязательное поле</div>
+      <div *ngIf="feedbackForm.get('phone')?.errors?.['phoneInvalid']">Только цифры</div>
+  </div>
+ </div>
+
+ <!-- Email -->
+ <div class="form-group">
+    <label for="email">Email </label>
+    <input type="email" id="email"
+    formControlName="email">
+    <div class="error" *ngIf="feedbackForm.get('email')?.invalid && feedbackForm.get('email')?.touched">
+      <div *ngIf="feedbackForm.get('email')?.errors?.['required']">Обязательное поле</div>
+      <div *ngIf="feedbackForm.get('email')?.errors?.['email']">Некорректный email</div>
+    </div>
+ </div>
+
+ <!-- Комментарий -->
+  <div class="form-group">
+    <label for="comment">Комментарий</label>
+    <textarea 
+      id="comment" formControlName="comment"></textarea>
+    </div>
+
+<!-- Согласие -->
+ <div>
+   <div class="form-group-checkbox-group">
+      <div class="checkbox-mark"><input  type="checkbox" id="agreement" 
+      formControlName="agreement"></div>  
+     <div><label class="checkbox-label" for="agreement">Согласие на обработку персональных данных </label></div> 
+   </div>
+  </div>
+
+<!-- Кнопка отправки -->
+  <button 
+    type="submit"> Отправить </button>
+
+<!-- Модальное окно -->
+<div *ngIf="showSuccessModal" class="modal">
+  <div class="modal-content">
+    <p>Форма отправлена успешно</p>
+    <button (click)="closeModal()">OK</button>
+  </div>
+</div>
+</form>

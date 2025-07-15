@@ -40,9 +40,6 @@ input, textarea {
   margin: 0 12px;
 }
 
-.example-margin:disabled{
-  opacity: 0.5 !important;
-}
 
 .error {
   color: red;

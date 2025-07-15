@@ -20,18 +20,29 @@ input, textarea {
   box-sizing: border-box;
 }
 
-.form-group-checkbox-group{
+/* .form-group-checkbox-group{
   display: flex;
   justify-content: space-between;
   justify-self: start;
   align-items: center;
-}
+} */
 
-.checkbox-mark{
+/* .checkbox-mark{
   margin-left: -5px;
   margin-right: 10px;
+} */
+
+.example-section {
+  margin: 12px -15px;
 }
 
+.example-margin {
+  margin: 0 12px;
+}
+
+.example-margin:disabled{
+  opacity: 0.5 !important;
+}
 
 .error {
   color: red;
@@ -47,6 +58,10 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.example-button-row:hover {
+    box-shadow: 0 5px 15px #768df1;
 }
 
 .modal {

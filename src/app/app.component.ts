@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormsModule} from '@angular/forms';
 import { phoneValidator } from '../shared/url.validator';
 import { NgIf } from '@angular/common';
 import { CustomFullNameComponent } from '../custom-full-name/custom-full-name.component';
 import { FeedbackForm } from '../shared/types';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule,  NgIf, CustomFullNameComponent],
+  imports: [ReactiveFormsModule,  NgIf, CustomFullNameComponent, MatButtonModule, MatIconModule, MatDividerModule, MatCheckboxModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -19,9 +22,7 @@ export class AppComponent implements OnInit {
 
   showSuccessModal: boolean = false;
 
-  constructor () {}
-
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.initForm();
   }
  

@@ -8,10 +8,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule,  NgIf, CustomFullNameComponent, MatButtonModule, MatIconModule, MatDividerModule, MatCheckboxModule],
+  imports: [ReactiveFormsModule,  NgIf, CustomFullNameComponent, MatButtonModule, MatIconModule, MatDividerModule, MatCheckboxModule, MatInputModule, MatFormFieldModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

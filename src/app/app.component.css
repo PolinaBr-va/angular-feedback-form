@@ -15,10 +15,6 @@ form {
   width: 100%;
 }
 
-div {
-  margin-bottom: 15px;
-}
-
 .example-section {
   margin: 12px -15px;
 }
@@ -32,6 +28,7 @@ div {
 }
 
 .error {
+  margin-bottom: 15px;
   color: red;
   font-size: 14px;
 }

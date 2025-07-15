@@ -1,9 +1,10 @@
 import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MatInputModule } from "@angular/material/input";
 
 @Component({
   selector: 'app-custom-full-name',
-  imports: [],
+  imports: [MatInputModule],
   templateUrl: './custom-full-name.component.html',
   styleUrl: './custom-full-name.component.css',
   providers: [{

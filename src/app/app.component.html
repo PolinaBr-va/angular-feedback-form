@@ -1,22 +1,22 @@
 <form [formGroup]="feedbackForm"
 (ngSubmit)="onSubmit()">
 <!-- ФИО -->
- <div class="form-group">
- <mat-form-field class="example-full-width">
+ <!-- <mat-form-field class="example-full-width">
      <mat-label>ФИО</mat-label>
+     
      <input
       matInput
       formControlName="fullName"
       placeholder="Введите ваше ФИО">
-   </mat-form-field>
+   </mat-form-field> -->
+   <app-custom-full-name></app-custom-full-name>
    <div class="error" *ngIf="feedbackForm.get('fullName')?.invalid && feedbackForm.get('fullName')?.touched">
       <div *ngIf="feedbackForm.get('fullName')?.errors?.['required']">Обязательное поле</div>
       <div *ngIf="feedbackForm.get('fullName')?.errors?.['minlength']">Минимум 6 символов</div>
     </div>
-  </div>
+  
 
  <!-- Телефон -->
-  <div class="form-group">
  <mat-form-field class="example-full-width">
      <mat-label>Телефон</mat-label>
      <input
@@ -28,10 +28,8 @@
       <div *ngIf="feedbackForm.get('phone')?.errors?.['required']">Обязательное поле</div>
       <div *ngIf="feedbackForm.get('phone')?.errors?.['phoneInvalid']">Только цифры</div>
     </div>
-  </div>
 
  <!-- Email -->
- <div class="form-group">
  <mat-form-field class="example-full-width">
      <mat-label>Email</mat-label>
      <input
@@ -43,10 +41,8 @@
       <div *ngIf="feedbackForm.get('email')?.errors?.['required']">Обязательное поле</div>
       <div *ngIf="feedbackForm.get('email')?.errors?.['email']">Некорректный email</div>
     </div>
-  </div>
 
  <!-- Комментарий -->
-  <div class="form-group">
     <mat-form-field class="example-full-width">
     <mat-label>Ваш комментарий</mat-label>
     <textarea 
@@ -54,7 +50,7 @@
     formControlName="comment"
     placeholder="Введите ваш комментарий"></textarea>
   </mat-form-field>
-  </div>
+
 
 <!-- Согласие -->
  <section class="example-section">
@@ -64,7 +60,7 @@
 
 <!-- Кнопка отправки -->
   <div class="example-button-row">
-    <button matButton="filled" type="submit" [disabled]="!feedbackForm.get('agreement')?.value">Отправить</button>
+    <button matButton="outlined" color="primary" [disabled]="!feedbackForm.get('agreement')?.value">Отправить</button>
   </div>
 
 <!-- Модальное окно -->

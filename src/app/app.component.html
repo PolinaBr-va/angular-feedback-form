@@ -40,23 +40,29 @@
     </div>
 
 <!-- Согласие -->
- <div>
+ <section class="example-section">
+  <mat-checkbox class="example-margin"
+  formControlName="agreement" >Согласие на обработку персональных данных </mat-checkbox>
+</section>
+
+ <!-- <section class="example-section">
    <div class="form-group-checkbox-group">
       <div class="checkbox-mark"><input  type="checkbox" id="agreement" 
       formControlName="agreement"></div>  
      <div><label class="checkbox-label" for="agreement">Согласие на обработку персональных данных </label></div> 
    </div>
-  </div>
+  </section> -->
 
 <!-- Кнопка отправки -->
-  <button 
-    type="submit" [disabled]="!feedbackForm.get('agreement')?.value"> Отправить </button>
+  <div class="example-button-row">
+    <button matButton="filled" type="submit" [disabled]="!feedbackForm.get('agreement')?.value">Отправить</button>
+  </div>
 
 <!-- Модальное окно -->
 <div *ngIf="showSuccessModal" class="modal">
   <div class="modal-content">
     <p>Форма отправлена успешно</p>
-    <button (click)="closeModal()">OK</button>
+    <button matButton="filled" (click)="closeModal()">OK</button>
   </div>
 </div>
 </form>

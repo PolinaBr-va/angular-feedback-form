@@ -1,43 +1,56 @@
 <form [formGroup]="feedbackForm"
 (ngSubmit)="onSubmit()">
 <!-- ФИО -->
- <div class="form-group">
-    <label>ФИО </label>
-    <app-custom-full-name formControlName="fullName"></app-custom-full-name>
-    <div class="error" *ngIf="feedbackForm.get('fullName')?.invalid && feedbackForm.get('fullName')?.touched">
+ <!-- <mat-form-field class="example-full-width">
+     <mat-label>ФИО</mat-label>
+     
+     <input
+      matInput
+      formControlName="fullName"
+      placeholder="Введите ваше ФИО">
+   </mat-form-field> -->
+   <app-custom-full-name></app-custom-full-name>
+   <div class="error" *ngIf="feedbackForm.get('fullName')?.invalid && feedbackForm.get('fullName')?.touched">
       <div *ngIf="feedbackForm.get('fullName')?.errors?.['required']">Обязательное поле</div>
       <div *ngIf="feedbackForm.get('fullName')?.errors?.['minlength']">Минимум 6 символов</div>
     </div>
- </div>
+  
 
  <!-- Телефон -->
- <div class="form-group">
-    <label for="phone">Телефон </label>
-    <input type="tel" id="phone"
-    formControlName="phone">
-     <div class="error" *ngIf="feedbackForm.get('phone')?.invalid && feedbackForm.get('phone')?.touched">
+ <mat-form-field class="example-full-width">
+     <mat-label>Телефон</mat-label>
+     <input
+      matInput
+      formControlName="phone"
+      placeholder="Введите ваш номер телефона">
+   </mat-form-field>
+   <div class="error" *ngIf="feedbackForm.get('phone')?.invalid && feedbackForm.get('phone')?.touched">
       <div *ngIf="feedbackForm.get('phone')?.errors?.['required']">Обязательное поле</div>
       <div *ngIf="feedbackForm.get('phone')?.errors?.['phoneInvalid']">Только цифры</div>
-  </div>
- </div>
+    </div>
 
  <!-- Email -->
- <div class="form-group">
-    <label for="email">Email </label>
-    <input type="email" id="email"
-    formControlName="email">
+ <mat-form-field class="example-full-width">
+     <mat-label>Email</mat-label>
+     <input
+      matInput
+      formControlName="email"
+      placeholder="Введите адрес вашей эл. почты">
+   </mat-form-field>
     <div class="error" *ngIf="feedbackForm.get('email')?.invalid && feedbackForm.get('email')?.touched">
       <div *ngIf="feedbackForm.get('email')?.errors?.['required']">Обязательное поле</div>
       <div *ngIf="feedbackForm.get('email')?.errors?.['email']">Некорректный email</div>
     </div>
- </div>
 
  <!-- Комментарий -->
-  <div class="form-group">
-    <label for="comment">Комментарий</label>
+    <mat-form-field class="example-full-width">
+    <mat-label>Ваш комментарий</mat-label>
     <textarea 
-      id="comment" formControlName="comment"></textarea>
-    </div>
+    matInput
+    formControlName="comment"
+    placeholder="Введите ваш комментарий"></textarea>
+  </mat-form-field>
+
 
 <!-- Согласие -->
  <section class="example-section">
@@ -45,17 +58,9 @@
   formControlName="agreement" >Согласие на обработку персональных данных </mat-checkbox>
 </section>
 
- <!-- <section class="example-section">
-   <div class="form-group-checkbox-group">
-      <div class="checkbox-mark"><input  type="checkbox" id="agreement" 
-      formControlName="agreement"></div>  
-     <div><label class="checkbox-label" for="agreement">Согласие на обработку персональных данных </label></div> 
-   </div>
-  </section> -->
-
 <!-- Кнопка отправки -->
   <div class="example-button-row">
-    <button matButton="filled" type="submit" [disabled]="!feedbackForm.get('agreement')?.value">Отправить</button>
+    <button matButton="outlined" color="primary" [disabled]="!feedbackForm.get('agreement')?.value">Отправить</button>
   </div>
 
 <!-- Модальное окно -->

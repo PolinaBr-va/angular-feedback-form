@@ -1,6 +1,11 @@
-<input 
-      [value]="value"
-      (input)="onInput($event)"
-      (blur)="onTouched()"
-      [disabled]="disabled"
-    >
+<mat-form-field class="example-full-width">
+  <mat-label>ФИО</mat-label>
+  <input
+    [value]="value"
+    (input)="onInput($event)"
+    (blur)="onTouched()"
+    [disabled]="disabled"
+    matInput
+    placeholder="Введите ваше ФИО"
+  />
+</mat-form-field>

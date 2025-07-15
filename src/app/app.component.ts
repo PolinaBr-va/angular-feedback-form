@@ -8,12 +8,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule,  NgIf, CustomFullNameComponent, MatButtonModule, MatIconModule, MatDividerModule, MatCheckboxModule],
+  imports: [ReactiveFormsModule,  NgIf, CustomFullNameComponent, MatButtonModule, MatIconModule, MatDividerModule, MatCheckboxModule, MatInputModule, MatFormFieldModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'Feedback form';
